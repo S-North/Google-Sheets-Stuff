@@ -18,22 +18,21 @@ col2 = sheet.col_values(3)
 def get_list(name, days):
     record = []
     records = []
-    for d,n,c in zip(col0,col1,col2):
-        if d != 'Timestamp':
-            tasks = defaultdict(int)
-            date = datetime.strptime(d.split(' ').pop(0), '%d/%m/%Y')
+    for d,n,c in zip(col0,col1,col2):                                           # create a set of columns to iterate over using zip
+        if d != 'Timestamp':                                                    # exclude the first row headers
+            date = datetime.strptime(d.split(' ').pop(0), '%d/%m/%Y')           # fornat the 1st column into a valid datetime type
             if (date > (datetime.today() - timedelta(days=days))) and (n == name):
-                record = [d,n,c]
-                records.append(record)
+                record = [d,n,c]                                                # create a list
+                records.append(record)                                          # create a list of lists
     return records
 
 def get_categories(name, days):
-    tasks = defaultdict(int)
+    tasks = defaultdict(int)                                                    # create a ditionary
     for d,n,c in zip(col0,col1,col2):
         if d != 'Timestamp':
             date = datetime.strptime(d.split(' ').pop(0), '%d/%m/%Y')
             if date > (datetime.today() - timedelta(days=days)) and (n == name):
-                tasks[c] += 1
+                tasks[c] += 1                                                   # create dict keys and count occurances
     return tasks
 
 pprint(get_list('Stuart', 90))
