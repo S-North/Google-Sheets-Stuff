@@ -84,12 +84,12 @@ def results_by_task(task, date):
             results[n] += 1
     return results
 
-# pprint(get_list_from_date('Stuart', get_earliest()))
-# pprint(get_list_minus_days('Stuart', 90))
-# pprint(get_categories_since_date('Stuart', get_earliest()))
-# pprint(unique_names())
-# pprint(get_earliest())
-# pprint(results_by_task('Clean cooker top', get_earliest()))
+pprint(get_list_from_date('Stuart', get_earliest()))
+pprint(get_list_minus_days('Stuart', 90))
+pprint(get_categories_since_date('Stuart', get_earliest()))
+pprint(unique_names())
+pprint(get_earliest())
+pprint(results_by_task('Clean cooker top', get_earliest()))
 
 for i in unique_chores()[1:]:
     pprint('Results for "{}"'.format(i))
