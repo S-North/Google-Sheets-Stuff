@@ -10,7 +10,7 @@ scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/aut
 creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope)
 client = gspread.authorize(creds)
 
-gsheet = client.open('Python test data - cleaning').sheet1
+gsheet = client.open('Household cleaning (Responses)').sheet1
 col0 = gsheet.col_values(1)
 col1 = gsheet.col_values(2)
 col2 = gsheet.col_values(3)
